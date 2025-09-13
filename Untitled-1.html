@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Assessment Section -->
+<section id="assessment" class="assessment">
+  <div class="container">
+    <div class="section-title">
+      <h2>Start Your Assessment</h2>
+      <p>Fill in your details to get a personalized roadmap.</p>
+    </div>
+    <form class="assessment-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="goal">Career Goal</label>
+        <input type="text" id="goal" placeholder="What career are you aiming for?" required>
+      </div>
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .assessment {
+    background: #f1f5f9;
+    padding: 4rem 1rem;
+  }
+  .assessment-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  .form-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAARA - Your Career & Education Advisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #4f46e5;
+      --accent: #ec4899;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --gray: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f9fafb;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.2rem 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: #fbbf24;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.8;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(79, 70, 229, 0.9));
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* Grids */
+    .features-grid,
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card,
+    .benefit-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover,
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon,
+    .benefit-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .header-content {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--secondary);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i> TAARA
+      </div>
+      <nav>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#why">Why TAARA</a></li>
+          <li><a href="#get-started">Get Started</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>The Adept And Resourceful Assistant</h1>
+      <p class="tagline">Your One-Stop Personalized Career & Education Advisor</p>
+      <p>Smart Education for a Smarter Future</p>
+      <a href="#assessment" class="cta-button">Start Your Journey</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Your Personal Guide</h2>
+        <p>Imagine a guide that understands your unique skills and crafts a tailored roadmap.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Skills Assessment</h3>
+          <p>Comprehensive evaluation of your current skills and strengths.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Goal Setting</h3>
+          <p>Define clear, achievable career objectives with measurable milestones.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Custom Learning</h3>
+          <p>Personalized learning paths with curated resources tailored to your goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why TAARA -->
+  <section id="why" class="why-taara">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose TAARA?</h2>
+        <p>Expert mentorship, personalized upskilling, and real-world career guidance.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-route"></i></div>
+          <h3>Personalized Roadmaps</h3>
+          <p>AI-powered roadmap tailored to your unique skills and goals.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+          <h3>Upskilling & Certification</h3>
+          <p>Access curated courses, certifications, and mentorship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started" class="cta-section">
+    <div class="container">
+      <h2>Transform Career Uncertainty into Clarity</h2>
+      <p>TAARA provides the tools and guidance needed to succeed in today's job market.</p>
+      <a href="#assessment" class="cta-button">Start Your Assessment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 TAARA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+    toggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
