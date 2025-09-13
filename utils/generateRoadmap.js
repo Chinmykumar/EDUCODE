@@ -1,6 +1,9 @@
 // This utility generates personalized roadmaps based on user assessment
 const generateRoadmap = (assessment, user) => {
-  const { field, experienceLevel, goals } = assessment;
+  const field = user.careerField || 'technology';
+  const experienceLevel = user.experienceLevel || 'beginner';
+  const goals = user.goals || [];
+  
   const roadmap = {
     title: `${field.charAt(0).toUpperCase() + field.slice(1)} Career Roadmap`,
     field,
@@ -48,10 +51,8 @@ const generateRoadmap = (assessment, user) => {
             }
           ]
         }
-        // Add more steps based on specific goals
       ];
     } else if (experienceLevel === 'intermediate') {
-      // Intermediate roadmap steps
       roadmap.steps = [
         {
           order: 1,
@@ -67,12 +68,9 @@ const generateRoadmap = (assessment, user) => {
             }
           ]
         }
-        // Add more steps
       ];
     }
-    // Add advanced level steps
   } else if (field === 'business') {
-    // Business field roadmap
     roadmap.steps = [
       {
         order: 1,
@@ -88,7 +86,6 @@ const generateRoadmap = (assessment, user) => {
           }
         ]
       }
-      // Add more steps
     ];
   }
 
