@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { protect } = require('../middleware/auth');
+const { protect } = require('./middleware/auth');
 const { 
   startAssessment, 
   submitAnswers, 
   completeAssessment, 
   getUserAssessments 
-} = require('../controllers/assessmentController');
+} = require('./controllers/assessmentController');
 
 // @route   POST /api/assessment/start
 // @desc    Start new assessment
