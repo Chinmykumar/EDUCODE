@@ -8,16 +8,19 @@ const connectDB = async () => {
       return;
     }
     
-    console.log('Attempting to connect to MongoDB...');
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    try {
+      console.log('Attempting to connect to MongoDB...');
+      const conn = await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (connectionError) {
+      console.log('MongoDB connection failed. Running without database for development...');
+      console.log('Connection error:', connectionError.message);
+    }
   } catch (error) {
-    console.error('Database connection error:', error.message);
-    console.log('Skipping database connection for development...');
+    console.log('Database setup error:', error.message);
   }
 };
 
