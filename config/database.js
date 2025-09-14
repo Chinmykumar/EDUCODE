@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    // Use MongoDB Atlas or skip database connection in development
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/taara';
+    // Skip database connection in development if no MONGODB_URI is provided
+    if (!process.env.MONGODB_URI) {
+      console.log('No MONGODB_URI provided. Skipping database connection for development...');
+      return;
+    }
     
     console.log('Attempting to connect to MongoDB...');
-    const conn = await mongoose.connect(mongoUri, {
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -14,8 +17,7 @@ const connectDB = async () => {
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error('Database connection error:', error.message);
-    console.log('Continuing without database connection for development...');
-    // Don't exit in development - allow server to start without DB
+    console.log('Skipping database connection for development...');
   }
 };
 
